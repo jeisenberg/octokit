@@ -16,6 +16,12 @@ module Octokit
         get("repos/#{Repository.new(repo)}/commits", params.merge(options), 3)
       end
       alias :list_commits :commits
+      
+      #get all commits from all branches
+      def all_commits(repo, options={})
+        params = { :per_page => 35 }
+        get("repos/#{Repository.new(repo)}/commits", params.merge(options), 3)
+      end
 
       # Get a single commit
       #
